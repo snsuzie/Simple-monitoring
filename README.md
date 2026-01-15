@@ -1,8 +1,9 @@
 # Simple-monitoring
 
 Installation et configuration
-git clone https://github.com/<votre-username>/netdata-monitoring-project.git
-cd netdata-monitoring-project "pour cloner le rep depot github"
+ git clone https://github.com/snsuzie/Simple-monitoring.git
+ je me positionne sur le disue D en faisant cd d: puis
+cd  Roadmapsh_Project/Simple-monitoring "pour cloner le rep depot github"
 
 Rendre le script exécutable et lancer l’installation : chmod +x setup.sh
 ./setup.sh

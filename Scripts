@@ -1,4 +1,10 @@
-Installation automaisé de netdata
+# Installation et configuration
+ git clone https://github.com/snsuzie/Simple-monitoring.git
+ je me positionne dans le dossier correspondant (pour ma part c'est le disue D en faisant cd d: puis
+cd  Roadmapsh_Project/Simple-monitoring )
+"puis cloner le rep depot github" 
+
+#Installation automatisé de netdata
   bash scripts/setup.sh
 #!/bin/bash
 
@@ -21,9 +27,11 @@ sudo systemctl restart netdata
 echo "[INFO] Installation complete!"
 echo "Dashboard available at: http://$(hostname -I | awk '{print $1}'):19999"
 
+chmod +x setup.sh (donner les droits d'exécution)
+./setup.sh (exécuter le script)
+Une fois l’installation terminée, accéder au dashboard Netdata : http://localhost:19999
 
-
-Test du monitoring
+#Test du monitoring
   bash scripts/test_dashboard.sh
 #!/bin/bash
 
@@ -34,9 +42,21 @@ echo "[INFO] Generating CPU load for 30 seconds..."
 stress-ng --cpu 4 --timeout 30s
 
 echo "[INFO] Load test completed. Check your Netdata dashboard."
+Pour tester notre monitoring : chmod +x test_dashboard.sh
+./test_dashboard.sh
 
+(Il Génère une charge CPU artificielle, Effectue des opérations de lecture/écriture disque et Déclenche les alertes Netdata.)
+Netdata surveille automatiquement les métriques suivantes :
+Utilisation du CPU (globale et par cœur)
+Mémoire RAM et swap
+Entrées / sorties disque (Disk I/O)
+Load average
+Trafic réseau
+Toutes les métriques sont affichées en temps réel dans le dashboard web.
 
-Nettoyage et suppression
+Le fichier d'alerte : /etc/netdata/health.d/cpu_usage.conf à modifier en fonction de ce qu'on veut de netdata
+
+#Nettoyage et suppression
   bash scripts/cleanup.sh
 #!/bin/bash
 
@@ -53,6 +73,8 @@ sudo rm -rf /var/lib/netdata
 
 echo "[INFO] Cleanup completed."
 
+chmod +x cleanup.sh (donner les droits d'exécution)
+./cleanup.sh (exécuter le script)
 
 
 L'arboréscence du projet

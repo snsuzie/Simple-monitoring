@@ -1,4 +1,3 @@
-https://roadmap.sh/projects/simple-monitoring-dashboard
 # Simple-monitoring
 
 Installation et configuration

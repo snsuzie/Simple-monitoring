@@ -1,0 +1,2 @@
+Installation automaisé de netdata
+ bash scripts/setup.sh

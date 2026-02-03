@@ -1,0 +1,22 @@
+Personnaliser netdata
+    /etc/netdata/netdata.conf
+Ajouter ou modifier
+"[global]
+    update every = 2"
+Redemarrer netdata "systemctl restart netdata"
+
+Créer une alerte cpu
+   nano /etc/netdata/health.d/cpu_usage.conf
+
+"alarm: high_cpu_usage
+on: system.cpu
+lookup: average -3s percentage
+every: 10s
+units: %
+warn: $this > 70
+crit: $this > 80
+info: CPU usage is high"
+
+Redemarrer netdata "systemctl restart netdata"
+
+
